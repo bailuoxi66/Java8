@@ -25,3 +25,27 @@ forEach有个参数Consumer<? super Integer>表示泛型，表示Consumer当前�
 
 3、如果某个几口只有一个抽象方法，但是我们没有给该接口声明FunctionalInterface，那么依旧将该接口当作函数式接口
 
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210131164248877.png" alt="image-20210131164248877" style="zoom:50%;" />
+
+4、注：如果一个接口声明类一个抽象方法（父类的方法），函数式接口的抽象方法个数不增加。本质是接口的实现类也会继承java.lang.Object。
+
+## 1.3 lambda和函数式接口
+
+lambda针对的是函数式接口。同理：本意就是实现接口里面的哪一个抽象方法
+
+```java
+test2.myTest(() -> {
+            System.out.println("myInterface");
+        });
+//相当于接口的实现
+MyInterface myInterface = () -> {
+            System.out.println("hello");
+        };
+```
+
+## 1.4 为何需要lambda表达式
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210131173131270.png" alt="image-20210131173131270" style="zoom:30%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210131173331018.png" alt="image-20210131173331018" style="zoom:20%;" />
+
