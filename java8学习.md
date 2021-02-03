@@ -49,3 +49,26 @@ MyInterface myInterface = () -> {
 
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210131173331018.png" alt="image-20210131173331018" style="zoom:20%;" />
 
+## 1.5 lambad表达式深入和流初步
+
+（从java8开始接口里面可以包含方法的实现：Default Method，也可以包含静态方法static method（可以有自己的实现））
+
+（如果一个接口只有一个抽象方法，那么该接口就是一个函数式接口）
+
+```java
+				TheInterface1 t1 = () -> {};
+        TheInterface2 t2 = () -> {};
+        System.out.println(t1.getClass().getInterfaces()[0]);
+        System.out.println(t2.getClass().getInterfaces()[0]);
+
+        //lambda表达式依赖于上下文，没有上下文lambda表达式的上下文无从得知的
+        //函数式接口的抽象方法对lambda来说毫无意义，名字本身对于接口的实现来说还是很关键的
+        () -> {};
+```
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210203144643112.png" alt="image-20210203144643112" style="zoom:50%;" />
+
+如上：stream和parallelStream面向的领域是不同的
+
+- stream是一个串形流，整个操作上由一个单线程完成的
+- parallelStream上并行流，是由多线程完成的
