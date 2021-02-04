@@ -72,3 +72,29 @@ MyInterface myInterface = () -> {
 
 - stream是一个串形流，整个操作上由一个单线程完成的
 - parallelStream上并行流，是由多线程完成的
+
+## 1.6
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205001416703.png" alt="image-20210205001416703" style="zoom:50%;" />
+
+如上：T是输入类型，R是返回类型
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205003319977.png" alt="image-20210205003319977" style="zoom:50%;" />
+
+如上：其实是四种方法引用当中的一种。这是一个实例方法，不是一个静态方法。说明我们在使用toUpperCase的时候一定需要一个String的对象，通过对象来调用toUpperCase；然而对于如上操作，String是一个类，相当于用类来引用了实例方法（当然不能写成String.toUpperCase，因为不是静态方法，不能使用类来进行调用）
+
+对于「类：：实例方法，那么实例方法的第一个输入参数一定是调用了方法的对象，也就是lambda的第一个参数
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005043033.png" alt="image-20210205005043033" style="zoom:20%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005054304.png" alt="image-20210205005054304" style="zoom:30%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005202208.png" alt="image-20210205005202208" style="zoom:30%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005338262.png" alt="image-20210205005338262" style="zoom:40%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005357573.png" alt="image-20210205005357573" style="zoom:40%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005438752.png" alt="image-20210205005438752" style="zoom:40%;" />
+
+高阶函数：如果一个函数的参数是一个函数，或者一个函数的返回值是一个函数，那么该函数就是高阶函数

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * @author ：luoyu
@@ -38,7 +39,7 @@ public class Test3 {
 //        });
 //        List<String> list2 = new ArrayList<>();
 //        list.forEach(item -> list2.add(item.toUpperCase(Locale.ROOT)));
-//        list2.forEach(item -> System.out.println(item));
+//        list2.forEach(item -> System.out.println(ixtem));
 
         //如上并没有极大的消减代码的编写
         //lambda、stream、集合
@@ -46,6 +47,9 @@ public class Test3 {
         list.stream().map(item -> item.toUpperCase(Locale.ROOT)).forEach(item -> System.out.println(item));
         //方法引用
         list.stream().map(String::toUpperCase).forEach(item -> System.out.println(item));
+
+        Function<String, String> function = String::toUpperCase;
+        System.out.println(function.getClass().getInterfaces()[0]);
     }
 }
 

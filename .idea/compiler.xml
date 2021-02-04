@@ -9,7 +9,7 @@
         <module name="study8_continue" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="study8_continue" target="11" />
     </bytecodeTargetLevel>
   </component>
