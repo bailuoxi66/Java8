@@ -98,3 +98,9 @@ MyInterface myInterface = () -> {
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205005438752.png" alt="image-20210205005438752" style="zoom:40%;" />
 
 高阶函数：如果一个函数的参数是一个函数，或者一个函数的返回值是一个函数，那么该函数就是高阶函数
+
+## 1.7 function and biz function
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210207155627371.png" alt="image-20210207155627371" style="zoom:40%;" />
+
+BiFunction:满足输入两个参数，得到一个返回参数的函数式接口
