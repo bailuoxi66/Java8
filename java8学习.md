@@ -73,7 +73,7 @@ MyInterface myInterface = () -> {
 - stream是一个串形流，整个操作上由一个单线程完成的
 - parallelStream上并行流，是由多线程完成的
 
-## 1.6
+## 1.6 理解function
 
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210205001416703.png" alt="image-20210205001416703" style="zoom:50%;" />
 
@@ -104,3 +104,15 @@ MyInterface myInterface = () -> {
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210207155627371.png" alt="image-20210207155627371" style="zoom:40%;" />
 
 BiFunction:满足输入两个参数，得到一个返回参数的函数式接口
+
+## 1.8  predict注意事项
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208133403467.png" alt="image-20210208133403467" style="zoom:50%;" />
+
+这种写法可能会造成空指针异常，不建议这样使用，建议如下方式使用！！！，如果为null的情况，也仅仅是判断为false而已
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208133648648.png" alt="image-20210208133648648" style="zoom:50%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208134126211.png" alt="image-20210208134126211" style="zoom:50%;" />
+
+重点关注下上面这一条：使用return进行返回
