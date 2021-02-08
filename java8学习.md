@@ -116,3 +116,7 @@ BiFunction:满足输入两个参数，得到一个返回参数的函数式接口
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208134126211.png" alt="image-20210208134126211" style="zoom:50%;" />
 
 重点关注下上面这一条：使用return进行返回
+
+## 1.9 理解相关函数式接口
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208153334440.png" alt="image-20210208153334440" style="zoom:50%;" />
