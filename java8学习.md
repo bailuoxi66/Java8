@@ -120,3 +120,19 @@ BiFunction:满足输入两个参数，得到一个返回参数的函数式接口
 ## 1.9 理解相关函数式接口
 
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208153334440.png" alt="image-20210208153334440" style="zoom:50%;" />
+
+# 二、Optional
+
+## 2.1 解决什么
+
+optional存在的意义主要是为了解决：NPE（NullPointerException），以前避免空指针异常主要依赖如下代码编写：
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210208154723698.png" alt="image-20210208154723698" style="zoom:50%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210209140015640.png" alt="image-20210209140015640" style="zoom:50%;" />
+
+如上：两种写法没有什么区别。optional的出现，里面的方法都是基于函数式风格使用的，写法风格需要进行注意
+
+```
+optional.ifPresent(item -> System.out.println(optional.get()));
+```
