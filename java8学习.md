@@ -136,3 +136,36 @@ optional存在的意义主要是为了解决：NPE（NullPointerException），�
 ```
 optional.ifPresent(item -> System.out.println(optional.get()));
 ```
+
+# 三、方法引用
+
+## 3.1 method reference
+
+方法引用实际上是lambda表达式的语法糖（本身没有提供新的功能，但是可以通过更加简洁/方便的方式去调用，替换掉比较复杂的写法）
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210210111841951.png" alt="image-20210210111841951" style="zoom:50%;" />
+
+如上：out本身是一个PrintStream类型的引用，同时PrintStream存在若干个println重载的方法
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210210112155036.png" alt="image-20210210112155036" style="zoom:50%;" />
+
+所以：如上是调用了PrintStream的方法
+
+- 方法引用：我们可以将方法引用看作是函数指针：function pointer
+- 方法引用总共分为4类
+  - 类名：：静态方法名
+  - 引用名（对象名）：：实例方法名
+
+## 3.2 类名::静态方法名
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210210115337703.png" alt="image-20210210115337703" style="zoom:50%;" />
+
+如上：两种没有任何关系
+
+第一种是：静态方法调用的形式（Student.CompareByScore）本身不能作为表达式存在，需要在后面加上一个（），同时根据是否有参数进行传递，真正表示的方法调用的这么一种概念
+
+第二种是：方法引用的形式，是一种叫方法引用的表达式形式，是一种函数指针，指向另外一个函数，使用的时候不能给传递参数的，是运行的时候自动传递进来的
+
+## 3.3 引用名（对象名）::实例方法名
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210210121539509.png" alt="image-20210210121539509" style="zoom:50%;" />
