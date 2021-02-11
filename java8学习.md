@@ -155,6 +155,8 @@ optional.ifPresent(item -> System.out.println(optional.get()));
 - 方法引用总共分为4类
   - 类名：：静态方法名
   - 引用名（对象名）：：实例方法名
+  - 类名：：实例方法名
+  - 构造方法引用  类名：：new
 
 ## 3.2 类名::静态方法名
 
@@ -169,3 +171,9 @@ optional.ifPresent(item -> System.out.println(optional.get()));
 ## 3.3 引用名（对象名）::实例方法名
 
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210210121539509.png" alt="image-20210210121539509" style="zoom:50%;" />
+
+## 3.4 类名::实例方法名
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210211105556752.png" alt="image-20210211105556752" style="zoom:50%;" />
+
+第一个参数是实例方法的调用者。后续所有的参数都是实例方法的参数

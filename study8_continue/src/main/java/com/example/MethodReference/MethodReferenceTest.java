@@ -1,7 +1,10 @@
 package com.example.MethodReference;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * @author ：luoyu
@@ -11,6 +14,15 @@ import java.util.List;
  */
 
 public class MethodReferenceTest {
+
+    public String getString(Supplier<String> supplier){
+        return supplier.get() + "test";
+    }
+
+    public String getString2(String str, Function<String, String> function){
+        return function.apply(str);
+    }
+
     public static void main(String[] args) {
         Student s1 = new Student("zhangshan", 10);
         Student s2 = new Student("lisi", 50);
@@ -32,8 +44,25 @@ public class MethodReferenceTest {
         //students.forEach(student -> System.out.println(student.getScore()));
 
         //使用方法引用二，引用名（对象名）：：实例方法名
-        students.sort(studentComparator::compareStudentByScore);
-        students.forEach(student -> System.out.println(student.getScore()));
+        //students.sort(studentComparator::compareStudentByScore);
+        //students.forEach(student -> System.out.println(student.getScore()));
 
+        //使用方法引用三，类名：：实例方法名
+        //这里跟上面两种情况不一样。不应该是类来调用实例方法的
+        //如下：sort里面应该是两个参数，所以理解是：第一个调用CompareByScore，第二个是CompareByScore的参数
+        //students.sort(Student::CompareByScore);
+        //students.forEach(student -> System.out.println(student.getScore()));
+
+//        List<String> cities = Arrays.asList("xian","shenzhen", "beijing");
+//        //Collections.sort(cities, (c1, c2) -> c1.compareToIgnoreCase(c2));
+//        //cities.forEach(c1 -> System.out.println(c1));
+//
+//        Collections.sort(cities, String::compareToIgnoreCase);
+//        cities.forEach(System.out::println);
+
+        MethodReferenceTest methodReferenceTest = new MethodReferenceTest();
+        methodReferenceTest.getString(String::new);
+
+        System.out.println(methodReferenceTest.getString2("hello", String::new));
     }
 }
