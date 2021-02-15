@@ -177,3 +177,38 @@ optional.ifPresent(item -> System.out.println(optional.get()));
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210211105556752.png" alt="image-20210211105556752" style="zoom:50%;" />
 
 第一个参数是实例方法的调用者。后续所有的参数都是实例方法的参数
+
+## 3.5 默认方法出现的原因？
+
+jdk8有了新特性后，需要保证向后兼容，为了避免对既有代码产生破坏
+
+例如：List原生接口，MyList继承了原生接口，想在List新增一个sort方法。对于以前的代码而言，MyList势必需要实现该接口。为了向下兼容所以产生了默认方法，因为MyList可以直接使用该方法，而不需要重新实现
+
+# 四、Stream
+
+stream以及lambda更方便的处理集合，搭配使用
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210214115125450.png" alt="image-20210214115125450" style="zoom:50%;" />
+
+Stream里面的peek是一个高阶函数，也就是说函数的参数是一个lambda表达式<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210214115217234.png" alt="image-20210214115217234" style="zoom:50%;" />
+
+Stream是一个接口，也是一个泛型，T表示流的类型
+
+## 4.1 流的组成
+
+- 源
+- 零个或多个中间操作
+- 终止操作
+
+## 4.2 流的分类
+
+- 惰性求值
+  - stream.xxx.yyy.zzz.count()       有了count终止操作后，xxx/yyy/zzz才会被终止操作，如果没有count是不会计算xxx/yyy/zzz的
+- 及早求值
+  - 对于如上的count，是立刻就要把结果拿到
+
+## 4.3 stream的创建
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210214120940833.png" alt="image-20210214120940833" style="zoom:50%;" />
+
+如上可知：of的参数是可变参数。
