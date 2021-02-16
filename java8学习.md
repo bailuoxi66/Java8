@@ -212,3 +212,11 @@ Stream是一个接口，也是一个泛型，T表示流的类型
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210214120940833.png" alt="image-20210214120940833" style="zoom:50%;" />
 
 如上可知：of的参数是可变参数。
+
+## 4.4 区别？
+
+问题？lambda和stream到底是什么呢？相比于传统的面向对象编程两者的根本区别是什么呢？
+
+以前面向对象传递的是数据，现在函数式编程通过方法传递的是一种行为
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210215121319839.png" alt="image-20210215121319839" style="zoom:50%;" />
