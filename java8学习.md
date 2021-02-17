@@ -220,3 +220,11 @@ Stream是一个接口，也是一个泛型，T表示流的类型
 以前面向对象传递的是数据，现在函数式编程通过方法传递的是一种行为
 
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210215121319839.png" alt="image-20210215121319839" style="zoom:50%;" />
+
+## 4.5 stream的使用注意点
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210217120027775.png" alt="image-20210217120027775" style="zoom:50%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210217115955803.png" alt="image-20210217115955803" style="zoom:50%;" />
+
+如上的区别是什么？map的Function的泛型是T/R，它们都是对象，使用中会返回Integer，而ToIntFunction返回的是int，可以避免自动装箱/自动拆箱的转化，会涉及到一点点的性能损耗，所以对于jdk而言，极力的避免性能损耗问题，所以提供了原生类型的方法
