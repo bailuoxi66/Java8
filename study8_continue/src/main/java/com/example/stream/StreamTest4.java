@@ -1,9 +1,6 @@
 package com.example.stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,13 +24,24 @@ public class StreamTest4 {
 //        //可以通过如下方式将数组转化为集合
 //        Arrays.asList(stringArray).forEach(System.out::println);
 
+//        Stream<String> stream = Stream.of("hello", "world", "hello world");
+//        //List<String> list = stream.collect(Collectors.toList());
+//        //List<String> list = stream.collect(() -> new ArrayList(), (theList, item) -> theList.add(item),(theList1, theList2) -> theList1.addAll(theList2));
+//
+//        List<String> list = stream.collect(LinkedList::new, LinkedList::add, LinkedList::addAll);
+//        list.forEach(System.out::println);
+
         Stream<String> stream = Stream.of("hello", "world", "hello world");
-        //List<String> list = stream.collect(Collectors.toList());
-        //List<String> list = stream.collect(() -> new ArrayList(), (theList, item) -> theList.add(item),(theList1, theList2) -> theList1.addAll(theList2));
+//        List<String> list = stream.collect(Collectors.toCollection(ArrayList::new));
+//        list.forEach(System.out::println);
 
-        List<String> list = stream.collect(LinkedList::new, LinkedList::add, LinkedList::addAll);
-        list.forEach(System.out::println);
+        //将stream转化成set
+//        Set<String> set = stream.collect(Collectors.toCollection(TreeSet::new));
+//        System.out.println(set.getClass());
+//        set.forEach(System.out::println);
 
-
+        //将stream转化成string
+        String str = stream.collect(Collectors.joining()).toString();
+        System.out.println(str);
     }
 }
