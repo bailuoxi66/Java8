@@ -228,3 +228,23 @@ Stream是一个接口，也是一个泛型，T表示流的类型
 <img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210217115955803.png" alt="image-20210217115955803" style="zoom:50%;" />
 
 如上的区别是什么？map的Function的泛型是T/R，它们都是对象，使用中会返回Integer，而ToIntFunction返回的是int，可以避免自动装箱/自动拆箱的转化，会涉及到一点点的性能损耗，所以对于jdk而言，极力的避免性能损耗问题，所以提供了原生类型的方法
+
+## 4.6 内部迭代与外部迭代本质剖析
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210217191807989.png" alt="image-20210217191807989" style="zoom:40%;" />
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210217191941723.png" alt="image-20210217191941723" style="zoom:40%;" />
+
+![image-20210217212603628](/Users/luoyu/Library/Application Support/typora-user-images/image-20210217212603628.png)
+
+stream本身就是一个描述性的语言。
+
+集合关注的是数据与数据存储本身。
+
+流关注的是对数据的计算。
+
+流与迭代器类似的一点是：流是无法重复使用或者消费的。
+
+中间操作都会返回一个stream对象，Stream<Student>、Stream<Integer>等
+
+终止操作不会返回stream类型，可能不返回值，也有可能返回其他类型的单个值
