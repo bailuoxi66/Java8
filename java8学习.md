@@ -250,3 +250,11 @@ stream本身就是一个描述性的语言。
 终止操作不会返回stream类型，可能不返回值，也有可能返回其他类型的单个值
 
 - 并发的本质是fork join，将很多的大任务分成小任务的行为
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210218142114898.png" alt="image-20210218142114898" style="zoom:50%;" />
+
+## 4.7 分组
+
+分组：group by
+
+分区：partition by。可以认为是分组的一种特殊情况。结果只会有两个分区（true/false，大于90分/相反）
