@@ -248,3 +248,5 @@ stream本身就是一个描述性的语言。
 中间操作都会返回一个stream对象，Stream<Student>、Stream<Integer>等
 
 终止操作不会返回stream类型，可能不返回值，也有可能返回其他类型的单个值
+
+- 并发的本质是fork join，将很多的大任务分成小任务的行为
