@@ -25,13 +25,13 @@ public class Test3 {
         //函数式接口的抽象方法对lambda来说毫无意义，名字本身对于接口的实现来说还是很关键的
         //() -> {};
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        }).start();
-//        new Thread(() -> System.out.println("hello world")).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }).start();
+        new Thread(() -> System.out.println("hello world")).start();
 
         List<String> list = Arrays.asList("hello", "world", "hello world");
 //        list.forEach(item -> {
@@ -48,8 +48,10 @@ public class Test3 {
         //方法引用
         list.stream().map(String::toUpperCase).forEach(item -> System.out.println(item));
 
-        Function<String, String> function = String::toUpperCase;
+        Function<String, String> function1 = String::toUpperCase;
+        Function<String, String> function = item -> item.toUpperCase(Locale.ROOT);
         System.out.println(function.getClass().getInterfaces()[0]);
+        System.out.println(function1.getClass().getInterfaces()[0]);
     }
 }
 

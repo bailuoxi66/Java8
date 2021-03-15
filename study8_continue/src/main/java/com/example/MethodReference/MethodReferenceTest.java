@@ -31,10 +31,10 @@ public class MethodReferenceTest {
 
         List<Student> students = Arrays.asList(s1, s2, s3, s4);
         //list新增sort排序，返回值为void，说明是原地排序
-        //students.sort((st1, st2) -> Student.CompareByScore(st1, st2));
+        students.sort((st1, st2) -> Student.CompareByScore(st1, st2));
         //students.forEach(student -> System.out.println(student.getScore()));
 
-        //使用方法引用一，跟上面是等价的（因为对于sort而言，里面的consumer函数式接口是接受两个参数返回一个int，而当前的静态方法正是如此）
+        //使用方法引用一，跟上面是等价的（因为对于sort而言，里面的Comparator函数式接口是接受两个参数返回一个int，而当前的静态方法正是如此）
         //students.sort(Student::CompareByScore);
         //students.forEach(student -> System.out.println(student.getScore()));
 
@@ -53,12 +53,12 @@ public class MethodReferenceTest {
         //students.sort(Student::CompareByScore);
         //students.forEach(student -> System.out.println(student.getScore()));
 
-//        List<String> cities = Arrays.asList("xian","shenzhen", "beijing");
-//        //Collections.sort(cities, (c1, c2) -> c1.compareToIgnoreCase(c2));
-//        //cities.forEach(c1 -> System.out.println(c1));
-//
-//        Collections.sort(cities, String::compareToIgnoreCase);
-//        cities.forEach(System.out::println);
+        List<String> cities = Arrays.asList("xian","shenzhen", "beijing");
+        Collections.sort(cities, (c1, c2) -> c1.compareToIgnoreCase(c2));
+        cities.forEach(c1 -> System.out.println(c1));
+
+        Collections.sort(cities, String::compareToIgnoreCase);
+        cities.forEach(System.out::println);
 
         MethodReferenceTest methodReferenceTest = new MethodReferenceTest();
         methodReferenceTest.getString(String::new);

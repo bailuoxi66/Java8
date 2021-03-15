@@ -255,6 +255,53 @@ stream本身就是一个描述性的语言。
 
 ## 4.7 分组
 
-分组：group by
+分组：group by【可以按照分数/名字等进行分组，可以分多组】
 
 分区：partition by。可以认为是分组的一种特殊情况。结果只会有两个分区（true/false，大于90分/相反）
+
+# 五、collector收集器
+
+## 5.1 收集器
+
+```java
+List<Student> students1 = students.stream().collect(toList());   //这里调整为静态导入,toList()属于Collectors
+```
+
+```java
+<R, A> R collect(Collector<? super T, A, R> collector);
+```
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210315141643360.png" alt="image-20210315141643360" style="zoom:50%;" />
+
+结论：stream().collect的参数是接口Collector。Collectors的方法返回Collector。所以一切刚刚好
+
+- collect:收集器
+- Collector：作为collect方法的参数
+- Collector是一个接口，它是一个可变的汇聚操作，将输入元素累积到一个可变的结果容器中【如：List/Set等】；它会在所有元素都处理完毕后，将累积的结果转化成一个最终的表示（这是一个可选操作）；它支持并行和串形两种方式执行
+- Collectors本身提供了关于Collector的常见汇聚实现，Collectors本身实际上是一个工厂。
+
+```java
+/**
+ * A <a href="package-summary.html#Reduction">mutable reduction operation【可变的汇聚操作】</a> that
+ * accumulates【累积】 input elements into a mutable result container【可变的结果容器中】, optionally transforming
+ * the accumulated result into a final representation【最终的表示】 after all input elements
+ * have been processed.  Reduction operations can be performed【执行】 either sequentially
+ * or in parallel.
+ *
+ * <p>Examples of mutable reduction operations include:
+ * accumulating elements into a {@code Collection}; concatenating
+ * strings using a {@code StringBuilder}; computing summary information about
+ * elements such as sum, min, max, or average; computing "pivot table" summaries
+ * such as "maximum valued transaction by seller", etc.  The class {@link Collectors}
+ * provides implementations【实现】 of many common mutable reductions.
+ *
+ * <p>A {@code Collector} is specified by four functions that work together to
+ * accumulate entries into a mutable result container, and optionally perform
+ * a final transform on the result.  They are: <ul>
+ *     <li>creation of a new result container ({@link #supplier()})</li>
+ *     <li>incorporating【合并】 a new data element into a result container ({@link #accumulator()})</li>
+ *     <li>combining two result containers into one ({@link #combiner()})</li>
+ *     <li>performing an optional final transform on the container ({@link #finisher()})</li>
+ * </ul>
+ **/
+```
