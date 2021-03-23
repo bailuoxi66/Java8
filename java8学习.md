@@ -279,6 +279,17 @@ List<Student> students1 = students.stream().collect(toList());   //这里调整�
 - Collector：作为collect方法的参数
 - Collector是一个接口，它是一个可变的汇聚操作，将输入元素累积到一个可变的结果容器中【如：List/Set等】；它会在所有元素都处理完毕后，将累积的结果转化成一个最终的表示（这是一个可选操作）；它支持并行和串形两种方式执行
 - Collectors本身提供了关于Collector的常见汇聚实现，Collectors本身实际上是一个工厂。
+- 为了确保串形和并行的结果一致性。避免满足同一性【identity】和交换性【associativity】
+- a == combiner.apply(a, supplier.get())
+- 函数式编程的重点是：如何做，而不是做什么
+
+（List<String> list1, List<String> list2） -> { list1.addAll(list2); return list1}]
+
+如下：根据结合性，要求r1 == r2
+
+<img src="/Users/luoyu/Library/Application Support/typora-user-images/image-20210316130153307.png" alt="image-20210316130153307" style="zoom:50%;" />
+
+
 
 ```java
 /**
