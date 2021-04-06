@@ -1,9 +1,6 @@
 package com.example.stream2;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author ：luoyu
@@ -29,7 +26,16 @@ public class MyComparatorTest {
         //如下，编译器不能自动推断出来类型，编译器认为是Obj，但是Obj没有length方法
         //Collections.sort(list, Comparator.comparingInt(item -> item.length()).reversed());
 
-        Collections.sort(list, Comparator.comparingInt((String item) -> item.length()).reversed());
+        //Collections.sort(list, Comparator.comparingInt((String item) -> item.length()).reversed());
+        //其上面语句的本质就是list调用sort方法
+        //list.sort(Comparator.comparingInt(String::length).reversed());
+        //list.sort(Comparator.comparingInt((String item) -> item.length()).reversed());
+
+        //Collections.sort(list, Comparator.comparingInt(String::length).thenComparing(String.CASE_INSENSITIVE_ORDER));
+//        Collections.sort(list, Comparator.comparingInt(String::length).
+//                thenComparing(Comparator.comparing(String::toLowerCase)));
+//        Collections.sort(list, Comparator.comparingInt(String::length).
+//                thenComparing(Comparator.comparing(String::toLowerCase, Comparator.reverseOrder())));
         System.out.println(list);
     }
 }
